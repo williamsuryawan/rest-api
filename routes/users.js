@@ -9,10 +9,10 @@ router.post('/login', UserController.signin)
 
 router.use(authentication, authorization)
 router.get('/', UserController.findAll)
-router.get('/:id', UserController.findByPk)
+router.get('/:id', userAuthentication, UserController.findByPk)
 router.post('/', UserController.create)
 router.delete('/:id', UserController.delete)
-router.put('/:id', UserController.update)
+router.put('/:id', userAuthentication, UserController.update)
 
 
 module.exports = router;
